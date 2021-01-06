@@ -1,0 +1,11 @@
+# OS
+~$*.xlsx
+.DS_Store
+
+
+# Project
+*.iml
+.gradle
+.idea
+build
+
