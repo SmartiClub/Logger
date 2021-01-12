@@ -1,0 +1,40 @@
+plugins {
+    id 'java-library'
+}
+
+group 'club.smarti'
+version '0.1.0'
+
+java {
+    withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    // Code dependencies:
+    implementation 'org.jetbrains:annotations:16.0.2'
+    api 'club.smarti:readable:0.1.1'
+
+    // Unit test environment:
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('jar') {
+    manifest {
+        attributes('Implementation-Title': "Smarti: Logger tool",
+                'Implementation-Version': project.version)
+    }
+}
